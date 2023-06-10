@@ -26,6 +26,7 @@ public class PetPark {
 	private Long petParkId;
 	private String parkName;
 	private String directions;
+	private String stateOrProvince;
 	private String country;
 	
 	@Embedded
