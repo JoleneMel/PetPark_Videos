@@ -20,7 +20,7 @@ import lombok.ToString;
 public class Contributor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long contriborId;
+	private Long contributorId;
 	
 	private String contributorName;
 	
