@@ -1,0 +1,59 @@
+
+Week 13 (plus my own thoughts added to it)
+-Spring Boot is a Java development framework, that will make programming a lot easier by automating common repetitive processes. 
+
+	-In week 12 we will learn about sring boot by developing REST APIS 
+			-REST: A set of constraints to build compatible applications. 
+			
+			-API: A set of end points (URLS) that perform actions or return data 
+			
+			//NOTES ABOUT MAPPING IN GENERAL  :) 
+			(Note mapping will be used to create the end points, starting with requestmapping, and then anything after that will be 
+			after requestmapping. 
+			
+			Example if your RequestMapping("/pet_park") and your PostMapping("/pet_park") your Post URL will be not 
+			http://localhost:8080/pet_park
+			but 
+			http://localhost:8080/pet_park/pet_park/
+			
+			BUT if your RequestMapping("/pet_park") and your PostMapping() your Post URL will be
+			http://localhost:8080/pet_park
+			
+			With every additional POST, GET, PUT, OR DELETE MAPPING the endpoints have to not match (so no 2 post mapping can have the same end points)
+			(or delete, get, puts, if you have more than 1 of them you will need to ensure the endpoint can be identifiable for the program to define 
+			which are you referring to) 
+			
+	Material for the upcoming weeks~
+		2 Rest APIS 
+			1. (Current project) Pet Park Locations API, over weeks 13 and 14 (or week 1 and 2) 
+				-1b. Assignment/homework is a Pet Sore API (weeks 1-3)
+				
+			2. Dog Rescur API over weeks 15 and week 16 (or week 3-4) 
+			
+	
+	Weeks Content 
+		-Each API will cover the following: 
+			How to create a Spring Boot project 
+			Use Spring JPA (Java Persistence API) to create tables and perform CRUD operations (Create, Read, Update and Delete)
+				
+				HttpMapping and meanings within CRUD 
+				Create = PostMapping
+				Read = GetMapping
+				Update = PutMapping
+				Delete = DeleteMapping. 
+				
+			How to create one-to many and many-to-many relationships with JPA 
+			
+			How to work with Springs Dependency Injection Framework 
+			
+	Additional Content aka Breakout Videos 
+		-Extra videos that go into depth on central Spring Boot topics 
+		
+			-Examples 
+				-Spring vs. Spring Boot 
+				-Spring JPA vs Spring JDBC
+				-JPA Relationships 
+				-Dependency Injection
+				-etc.
+	
+	
