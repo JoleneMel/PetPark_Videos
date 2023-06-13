@@ -56,4 +56,16 @@ Week 13 (plus my own thoughts added to it)
 				-Dependency Injection
 				-etc.
 	
-	
+	Week 1 for Pet Park Locations
+		-Creating the maven project 
+		-Creating the database schema
+		-Creating table data 
+		-Create JPA configutation 
+		-Program the "Create Contributor" operation. 
+		
+		-Maven is a project build tool 
+		-We will be using it for dependency management 
+		
+		How to create a Spring Boot Project
+		-Go to start.spring.io
+		-Build a pom file w/ latest SpringBoot(to get repos use 3.0.8-SNAPSHOT)
