@@ -26,9 +26,11 @@ public class Amenity {
 	
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
+	//Where relationship is mapped.
 	@ManyToMany(mappedBy = "amenities")
 //	@JoinTable(name = "pet_park_amenity", 
 //	joinColumns = @JoinColumn(name = "amenity_id"), 
 //	inverseJoinColumns = @JoinColumn(name = "pet_park_id"))
+	//This is how JPA manages relationships it needs sets in both sides/tables 
 	private Set<PetPark> petParks = new HashSet<>();
 }
