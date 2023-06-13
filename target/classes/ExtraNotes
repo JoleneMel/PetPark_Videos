@@ -70,6 +70,9 @@ Week 13 (plus my own thoughts added to it)
 		-Go to start.spring.io
 		-Build a pom file w/ latest SpringBoot(to get repos use 3.0.8-SNAPSHOT)
 		-Copy and paste it into the maven project 
+		
+	Packages 
+		-these can have dots/periods like pet.park
 		-Create the main application file
 			-Annotated by @SpringBootApplication and the run method 
 			
@@ -79,3 +82,11 @@ Week 13 (plus my own thoughts added to it)
 		-ArtifactId this is the name of the projects in this project pet_parks
 		-The GroupId, ArtifactId and Version are how our application uniquely identifies our project. 
 		-This is called Gav 
+		
+	application.yaml file notes 
+		-make in src/main/resources 
+		-yaml it is hierarchical and it's just a superset of Json so it's like Json that allows comments
+		-if you start programming the yaml file without the editor then install it it will cause silly errors 
+		-username and password match mysql stuff 
+		-3306 is the mysql port 
+		
