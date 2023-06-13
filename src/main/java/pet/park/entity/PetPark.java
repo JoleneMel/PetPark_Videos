@@ -36,6 +36,7 @@ public class PetPark {
 	
 	private String country;
 	
+	//Due to the @Embedable annotation within geolocation we needed to add @Embedded here 
 	@Embedded
 	private GeoLocation geoLocation;
 	
@@ -43,15 +44,21 @@ public class PetPark {
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToOne(cascade = CascadeType.ALL)
+	//Jpa will create join column with the snake casing and joins the keys making a join table 
 	@JoinColumn(name = "contributor_id", nullable = false)
 	private Contributor contributor;
 	
 	//This is a many to many, needing a set
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
+	//Cascade.PERSIST is used here because unlike the other relationships, because we do not want to delete child rows since this 
+	//1 amenity may be in several parks and such
 	@ManyToMany(cascade = CascadeType.PERSIST)
+	//name for join table 
 	@JoinTable(name = "pet_park_amenity", 
+	//joinColumn
 	joinColumns = @JoinColumn(name = "pet_park_id"), 
+	//Other joincolumns
 	inverseJoinColumns = @JoinColumn(name = "amenity_id"))
 	private Set<Amenity> amenities = new HashSet<>();
 
