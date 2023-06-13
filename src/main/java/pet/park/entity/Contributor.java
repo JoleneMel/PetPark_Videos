@@ -25,11 +25,14 @@ public class Contributor {
 	
 	private String contributorName;
 	
+	//Adding a unique key, with this annotation below
 	@Column(unique = true)
 	private String contributorEmail;
 	
+	//To prevent recursive memory issue
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
+	//explaining the mapping, cascade will help associate all child rows with one another. 
 	@OneToMany(mappedBy = "contributor", cascade = CascadeType.ALL)
 	//The way that jpa manages petparks the one to many, so it needs a set here 
 	private Set<PetPark> petParks = new HashSet<>();

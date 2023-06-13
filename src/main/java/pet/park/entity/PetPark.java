@@ -21,23 +21,32 @@ import lombok.ToString;
 @Entity
 @Data
 public class PetPark {
+	//Fields 
+	//@Id tells JPA where the id/primary key is 
 	@Id
+	//Tells JPA how that primary key is managed
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long petParkId;
+	
 	private String parkName;
+	
 	private String directions;
+	
 	private String stateOrProvince;
+	
 	private String country;
 	
 	@Embedded
 	private GeoLocation geoLocation;
 	
+	//Relationship for many to one, 
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "contributor_id", nullable = false)
 	private Contributor contributor;
 	
+	//This is a many to many, needing a set
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@ManyToMany(cascade = CascadeType.PERSIST)
