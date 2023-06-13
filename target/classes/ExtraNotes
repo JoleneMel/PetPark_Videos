@@ -91,7 +91,7 @@ Week 13 (plus my own thoughts added to it)
 		-3306 is the mysql port 
 		
 		
-	-RD Notes 
+	-RD Notes JPA CONFIG
 we will in this video add jpa and spring boot configuration into application.yaml and then we'll start the application and
 show that the tables have been created by jpa and populated by Spring boot we'll do this in application.yaml by
 adding three new configuration sections spring.data source which will have the database connection
