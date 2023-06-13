@@ -90,3 +90,55 @@ Week 13 (plus my own thoughts added to it)
 		-username and password match mysql stuff 
 		-3306 is the mysql port 
 		
+		
+	-RD Notes 
+we will in this video add jpa and spring boot configuration into application.yaml and then we'll start the application and
+show that the tables have been created by jpa and populated by Spring boot we'll do this in application.yaml by
+adding three new configuration sections spring.data source which will have the database connection
+information and we already added that I believe we'll in this time we'll add spring.jpa
+and spring.sql so spring.jpa contains jpa setup instructions and spring.sql contains spring data
+instructions then we'll use D Beaver to verify that the tables have been created and
+populated and the rules are very simple we use MySQL workbench to create the schema the
+user and the password to give privileges to the user and then we use D Beaver for
+everything else queries inserts Etc and we'll give you the dbiver installation
+instructions it's pretty simple all right let's get busy and code it here is the project
+let me open up application.yaml and you can see that we already have the spring data source configuration
+so let's add J spring jpa now to add jpa we can have a blank line in here but we have to
+start it in the same column as data source so it's indented two in my editor so I'll just put jpa and a colon
+and the jpa engine that spring boot uses is is a library an open source Library called hibernate and so we'll add a
+section for hibernate here hibernate is what's called an object relational mapper or orm and that's what
+takes your entities and converts them into SQL statements so in hibernate we'll say ddl Dash Auto
+this tells hibernate whether or not to create the tables and here we'll set it to
+create the first time and we'll put it to update right after this because we don't want it creating
+tables every single time otherwise it'll wipe all our data out and then also indented along with
+hibernate we have show Dash SQL this is whether or not we want the SQL to be logged
+and we'll say true yeah we do and then we're going to put in something sometimes when hibernate's creating the
+tables and spring boot is creating the configuration or creating the um inserting into the tables there you can
+have a a situation in which spring boot tries to insert Data before the tables have been created which is you know bad
+so we'll add an instruction to tell spring boot to wait so defer Dash data source Dash initialization
+and we'll set that to true that just says spring boot will wait until jpa is finished before trying to
+populate the amenities table and then we'll add another spring.sql configuration again this must line up
+with jpa and data source otherwise the yamla won't work so we'll say SQL init and then mode
+and this will be always and we'll turn it off by saying never when because we don't want the amenities
+to be created each time because first it would be one set of amenities then there'd be another set of the same
+amenities and another set of the same amenities and so we'll turn it off once we've actually created it and let's do that now
+um while we're doing that I'll startup Dbeaver and get it running I'm going to run
+petparkapplication.java right click on that run as Java application and we should see it logging some things
+and let me stop the application now that it's initialized and if I scroll down a bit you can see from coming from
+hibernate and what's throwing some exceptions saying that the tables don't exist
+that's okay then hibernate says drop table if exist create table amenity create so these are
+the create table statements um and it creates amenity contributor pet Park Community and pet Park
+and then we'll see if those were populated okay so in D beaver I need to create a connection to the pet
+parks schema and the way I'll do that is I can do this several different ways I can
+right click in the database Navigator create connection so that's one way I'll just do that select this first my sequel
+from the SQL tab click next and now you'll see why I named everything the same I can put in
+database which is really the schema pet parks with an underscore the username is not root it is
+pet parks with an underscore and the password is pet parks with an underscore
+I'll test the connection and it says it connected so we'll do okay finish there's my new connection and if
+I expand pet parks and expand databases which is a schema expand pet Parks again and expand tables
+you'll see that it's got our four tables in there so it's got amenity connect contributor pet Park and pet Park
+amenity if I double click on amenity you'll see with the data tab selected the amenities that we added dog friendly
+cat friendly Turtle friendly chicken friendly Etc so the amenities are all there so spring jpa created the tables
+The Entity from The Entity classes and then from data.sql and Source main resources spring boot
+ran executed that the insert statements in that file and we created these table rows so in this video we
+added the configuration for jpa and spring Boot and then we ran the application and it created everything
