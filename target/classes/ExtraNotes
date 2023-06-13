@@ -69,3 +69,13 @@ Week 13 (plus my own thoughts added to it)
 		How to create a Spring Boot Project
 		-Go to start.spring.io
 		-Build a pom file w/ latest SpringBoot(to get repos use 3.0.8-SNAPSHOT)
+		-Copy and paste it into the maven project 
+		-Create the main application file
+			-Annotated by @SpringBootApplication and the run method 
+			
+	Maven Project 
+		-Select simple project
+		-GroupId is typically a web address example com.promineotech 
+		-ArtifactId this is the name of the projects in this project pet_parks
+		-The GroupId, ArtifactId and Version are how our application uniquely identifies our project. 
+		-This is called Gav 
