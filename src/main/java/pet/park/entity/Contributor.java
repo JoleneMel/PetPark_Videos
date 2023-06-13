@@ -18,6 +18,7 @@ import lombok.ToString;
 @Entity
 @Data
 public class Contributor {
+	//Below is our feilds
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long contributorId;
@@ -30,6 +31,6 @@ public class Contributor {
 	@EqualsAndHashCode.Exclude
 	@ToString.Exclude
 	@OneToMany(mappedBy = "contributor", cascade = CascadeType.ALL)
-	
+	//The way that jpa manages petparks the one to many, so it needs a set here 
 	private Set<PetPark> petParks = new HashSet<>();
 }
