@@ -142,3 +142,94 @@ Week 13 (plus my own thoughts added to it)
 	The Entity from The Entity classes and then from data.sql and Source main resources spring boot
 	ran executed that the insert statements in that file and we created these table rows so in this video we
 	added the configuration for jpa and spring Boot and then we ran the application and it created everything
+	
+	
+	Create Contributor Operation video 
+		-Explains the parts of a SpringBoot Application 
+		-Code the classes needed to perform the "Create Contributor" operation 
+		-Explain the HTTP POST method 
+		-Add transaction management 
+		
+	Anatomy of a SpringBoot Application 
+		-Controller = handles HTTP request and passes it to the Service 
+		-Service = manages the business logic and passes it onto the DAO 
+		-DAO = interacts with the database
+		
+	Once the Java is created 
+		-Use a REST client to send JSON to the running application 
+		-We will be using ARC (Advanced REST Client) from MuleSoft 
+		
+	JSON vs. Java 
+		JSON: 
+			{
+  				"contributorName": "Sandiiiiii Blotts",
+  				"contributorEmail": "sandiiiiii@.r.us"
+			}
+			
+			
+		Java: 
+			public class ContributorData {
+				private Long contributorId;
+				private String contributorName;
+				private String contributorEmail;
+			}
+	
+	
+	A loop at HTTP 
+		-HTTP is an abbreviation for HyperText Transport Protocol
+		-HTTP is just text sent over the Internet 
+		-HTTP consists of a request and a response
+		
+	Request Line 
+		VERB + URL + HTTP Version
+		
+		GET /pet_park HTTP/2.0
+		POST /pet_park HTTP/2.0
+		
+			Common HTTP Verbs 
+				-POST(Create)
+				-GET(READ) 
+				-PUT(UPDATE) 
+				-DELETE(DELETE) 
+				
+		Next section for request is the request headers 
+			
+			Describe the request and allowed response format(s) 
+				-Accept: application/json
+				-Content-Type: application/json
+				
+		Request Body
+			-Used for POST(Create) and PUT(Update) 
+			-Written as valid json 
+			-Also called the request payload
+			
+		Response is similar to the request, HTTP Response 
+		-Status Line 
+			HTTP version + status code + reason 
+				-HTTP/2.0 200 OK 
+				-HTTP/2.0 404 Not Found
+				-HTTP/2.0 409 Conflict 
+		
+		-Response Headers
+		-Response Body (JSON) 
+			-Very similar to request headers and body 
+			-Response headers may be different than the request headers, but they are still key:value pairs 
+			-Body (payload) is JSON
+			
+			
+		-Setting up 
+			-We will create Data Transfer Objects(DTOS) for the request and response
+			-Jackson (JSON generator) freaks out with the recursive nature of entities
+			
+		The POST request 
+			-Use ARC to send POST request with JSON payload to the the service running in eclipse 
+				http://localhost:8080/pet_park
+				
+			-A POST request returns a status of 201 (CREATED) if successful 
+			
+		Transaction management 
+			-In a transaction, a group of SQL statement will either all succeed or all fail- no partial success
+			-Transactions are started by adding @Transactional to a public method in the service class
+			-If an exception is thrown the transaction is "rolls back"  
+			-If an exception is not thrown the transaction is "committed" 
+			
