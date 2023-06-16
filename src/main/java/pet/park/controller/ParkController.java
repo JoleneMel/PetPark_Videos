@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import pet.park.controller.model.ContributorData;
 import pet.park.service.ParkService;
 
+//Tells JPA that this is the restcontroller 
 @RestController
 @RequestMapping("/pet_park")
 @Slf4j
